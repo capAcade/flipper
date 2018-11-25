@@ -3,7 +3,7 @@ export default class Paddle {
         this.world = world
         this.side = side
         this.down()
-        this.paddle = Matter.Bodies.trapezoid(paddleX, 660, 20, 80, 0.33, {
+        this.paddle = Matter.Bodies.trapezoid(paddleX, this.world.bounds.max.y - 140, 20, 80, 0.33, {
             label: `paddle-${this.side}` ,
             angle: 1.57 * this.sideFactor,
             chamfer: {},
@@ -11,7 +11,7 @@ export default class Paddle {
                 fillStyle: PADDLE_COLOR
             }
         });
-        this.brick = Matter.Bodies.rectangle(paddleX + 2 * this.sideFactor, 672, 40, 80, {
+        this.brick = Matter.Bodies.rectangle(paddleX + 2 * this.sideFactor, this.world.bounds.max.y - 128, 40, 80, {
             angle: 1.62 * this.sideFactor,
             chamfer: {},
             render: {
@@ -22,7 +22,7 @@ export default class Paddle {
             label: `paddle-${this.side}-comp`,
             parts: [this.paddle, this.brick]
         });
-        this.hinge = Matter.Bodies.circle(paddleX - 28 * this.sideFactor, 660, 5, {
+        this.hinge = Matter.Bodies.circle(paddleX - 28 * this.sideFactor, this.world.bounds.max.y - 140, 5, {
             isStatic: true,
             render: {
                 visible: false
