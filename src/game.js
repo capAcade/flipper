@@ -63,19 +63,27 @@ const CONFIG = {
         new Wall(357, 816, 20, 98, 0.96).wall,
         new Path(79, 932, PATHS.APRON_LEFT).path,
         new Path(371, 932, PATHS.APRON_RIGHT).path
-    ]
+    ],
+    keys: {
+        leftPaddle: 'p', 
+        rightPaddle: 'Tab', 
+        shooter: 'f'
+    }
 }
 
 function load() {
-    let pinballGame = new PinballGame();
+    let pinballGame = new PinballGame(CONFIG);
     pinballGame.init();
-    pinballGame.createStaticBodies(CONFIG);
+    pinballGame.createStaticBodies();
     pinballGame.createPaddles();
     pinballGame.createPinball();
     pinballGame.createEvents();
 }
 
 class PinballGame {
+    constructor(config) {
+        this.config = config
+    }
 
     init() {
         // engine (shared)
@@ -109,13 +117,13 @@ class PinballGame {
         this.highScore = 0;
     }
 
-    createStaticBodies(config) {
+    createStaticBodies() {
         Matter.World.add(this.world, new Boundary(this.world, 'top').boundary)
         Matter.World.add(this.world, new Boundary(this.world, 'bottom').boundary)
         Matter.World.add(this.world, new Boundary(this.world, 'left').boundary)
         Matter.World.add(this.world, new Boundary(this.world, 'right').boundary)
 
-        CONFIG.staticBodies.forEach((item) => Matter.World.add(this.world, item))       
+        this.config.staticBodies.forEach((item) => Matter.World.add(this.world, item))       
         Matter.World.add(this.world, [
             this.reset(225, 50),
             this.reset(465, 30)
@@ -200,28 +208,36 @@ class PinballGame {
 
         // keyboard paddle events
         $('body').on('keydown', (e) => {
-            if (e.which === 37) { // left arrow key
+            if (e.key === this.config.keys.leftPaddle) { // left arrow key
                 this.paddleLeft.up()
-            } else if (e.which === 39) { // right arrow key
+                e.stopPropagation()
+            } else if (e.key === this.config.keys.rightPaddle) { // right arrow key
                 this.paddleRight.up()
+                e.stopPropagation()
             } else if (this.waitingForShooter) {
-                if (e.key === 'k' || e.key === 'K') {
+                if (e.key === this.config.keys.shooter) {
                     this.launchPower = (this.launchPower + 1) % 12
+                    e.stopPropagation()
                 } else if (e.key === '0') {
                     this.launchPower = 0
+                    e.stopPropagation()
                 } else if (e.key === '1') {
                     this.launchPower = 11;
+                    e.stopPropagation()
                 }
             }
         });
         $('body').on('keyup', (e) => {
-            if (e.which === 37) { // left arrow key
+            if (e.key === this.config.keys.leftPaddle) { // left arrow key
                 this.paddleLeft.down()
-            } else if (e.which === 39) { // right arrow key
+                e.stopPropagation()
+            } else if (e.key === this.config.keys.rightPaddle) { // right arrow key
                 this.paddleRight.down()
+                e.stopPropagation()
             } else if (this.waitingForShooter) {
-                if  (e.key ==='k'|| e.key === 'K' || e.key ==='0' || e.key ==='1') {
+                if  (e.key ===this.config.keys.shooter || e.key ==='0' || e.key ==='1') {
                     this.launchPinball()
+                    e.stopPropagation()
                 }
             }
         });
