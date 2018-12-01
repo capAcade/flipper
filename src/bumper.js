@@ -9,7 +9,6 @@ export default class Bumper {
         });
         this.bumper.restitution = BUMPER_BOUNCE;
     }
-
 }
 
 const BUMPER_COLOR = '#fab005'

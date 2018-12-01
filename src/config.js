@@ -27,7 +27,7 @@ export default class Config {
         }
         this.GRAVITY = 0.6
         this.WIREFRAMES = false
-        this.MAX_VELOCITY = 38
+        this.MAX_VELOCITY = 32
         this.staticBodies = [ 
             new Path(440, 96,this.PATHS.DOME).path,
             new Path(30, 30, this.PATHS.APRON_TOP_LEFT).path,
@@ -60,8 +60,10 @@ export default class Config {
             shooter: 'f'
         }
         this.demoMode = false;
+        this.urls = {
+            backgroundImage : 'img/background.svg'
+        }
     }
-
     enableDemoMode() {
         this.demoMode = true;
     }

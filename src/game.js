@@ -22,23 +22,12 @@ if (document.location.hash==='#demo') {
 }
 
 function load() {
-    let pinballGame = new PinballGame(CONFIG);
-    pinballGame.init();
-    pinballGame.createStaticBodies();
-    pinballGame.createPaddles();
-    pinballGame.createPinball();
-    pinballGame.createEvents();
-    if (pinballGame.config.demoMode) {
-        pinballGame.launchPinball();
-    }
+    new PinballGame(CONFIG);
 }
 
 class PinballGame {
     constructor(config) {
         this.config = config
-    }
-
-    init() {
         // engine (shared)
         this.engine = Matter.Engine.create();
         this.waitingForShooter = true;
@@ -51,6 +40,9 @@ class PinballGame {
         this.render = Matter.Render.create({
             element: document.querySelector('.container'),
             engine: this.engine,
+            sprite: {
+                texture: './img/background.svg'
+            },
             options: {
                 width: this.world.bounds.max.x,
                 height: this.world.bounds.max.y,
@@ -69,6 +61,14 @@ class PinballGame {
             this.highScore = 0;
         }
         this.maxVelocity = 0;
+        this.createStaticBodies();
+        this.createPaddles();
+        this.createPinball();
+        this.createEvents();
+        if (this.config.demoMode) {
+            this.launchPinball();
+        }
+    
     }
 
     createStaticBodies() {
@@ -205,26 +205,6 @@ class PinballGame {
                 }
             }
         });
-
-        // click/tap paddle events
-        $('.left-trigger')
-            .on('mousedown touchstart', (e) => {
-                this.paddleLeft.up()
-                e.stopPropagation()
-            })
-            .on('mouseup touchend', (e) => {
-                this.paddleLeft.down()
-                e.stopPropagation()
-            });
-        $('.right-trigger')
-        .on('mousedown touchstart', (e) => {
-                this.paddleRight.up()
-                e.stopPropagation()
-            })
-            .on('mouseup touchend', (e) => {
-                this.paddleRight.down()
-                e.stopPropagation()
-            });
     }
 
     resetPinball() {
