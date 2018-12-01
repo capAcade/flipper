@@ -17,6 +17,9 @@ if (document.location.hash==='#keyboard') {
     CONFIG.useKeyboard()
 
 }
+if (document.location.hash==='#demo') {
+    CONFIG.enableDemoMode()
+}
 
 function load() {
     let pinballGame = new PinballGame(CONFIG);
@@ -25,6 +28,9 @@ function load() {
     pinballGame.createPaddles();
     pinballGame.createPinball();
     pinballGame.createEvents();
+    if (pinballGame.config.demoMode) {
+        pinballGame.launchPinball();
+    }
 }
 
 class PinballGame {
@@ -126,6 +132,21 @@ class PinballGame {
                             this.pingBumper(pair.bodyA);
                             break;
                     }
+                    if (this.config.demoMode) {
+                        switch (pair.bodyA.label) {
+                            case 'paddle-left':
+                                this.paddleLeft.up()
+                                setTimeout(() => { this.paddleLeft.down()}, 250);
+                                break;
+                            case 'paddle-right':
+                                this.paddleRight.up();
+                                setTimeout(() => { this.paddleRight.down()}, 250);
+                                break;
+                            case 'reset':
+                                this.launchPinball()
+                                break;
+                        }
+                    }
                 }
             });
         });
@@ -165,7 +186,7 @@ class PinballGame {
                 e.stopPropagation()
             } else if (this.waitingForShooter) {
                 if (e.key === this.config.keys.shooter) {
-                    this.launcher.pull()                    
+                    this.launcher.startPulling()                    
                     e.stopPropagation()
                 }
             }
@@ -189,16 +210,20 @@ class PinballGame {
         $('.left-trigger')
             .on('mousedown touchstart', (e) => {
                 this.paddleLeft.up()
+                e.stopPropagation()
             })
             .on('mouseup touchend', (e) => {
                 this.paddleLeft.down()
+                e.stopPropagation()
             });
         $('.right-trigger')
         .on('mousedown touchstart', (e) => {
                 this.paddleRight.up()
+                e.stopPropagation()
             })
             .on('mouseup touchend', (e) => {
                 this.paddleRight.down()
+                e.stopPropagation()
             });
     }
 

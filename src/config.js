@@ -59,6 +59,11 @@ export default class Config {
             rightPaddle: 'Tab', 
             shooter: 'f'
         }
+        this.demoMode = false;
+    }
+
+    enableDemoMode() {
+        this.demoMode = true;
     }
 
     useKeyboard() {
