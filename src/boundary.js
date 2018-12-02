@@ -1,3 +1,8 @@
+
+const BOUNDARY_COLOR = '#495057';
+const BOUNDARY_WIDTH = 100
+const BOUNDARY_MARGIN = 30
+
 export default class Boundary {
     
     constructor(world, side, color=BOUNDARY_COLOR) {
@@ -40,7 +45,3 @@ export default class Boundary {
   
     }
 }
-
-const BOUNDARY_COLOR = '#495057';
-const BOUNDARY_WIDTH = 100
-const BOUNDARY_MARGIN = 30

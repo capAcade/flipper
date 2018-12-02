@@ -11,6 +11,15 @@ export default class Paddle {
                 fillStyle: PADDLE_COLOR
             }
         });
+        this.paddleTip = Matter.Bodies.trapezoid(paddleX + 21 * this.sideFactor, this.world.bounds.max.y - 140, 19, 42,0.33, { 
+            label: `paddle-${this.side}-tip`,
+            angle: 1.57 * this.sideFactor,
+            chamfer: {}, 
+            render: {
+                visible: false,
+                fillStyle: '#ffffff'
+            }
+        });
         this.brick = Matter.Bodies.rectangle(paddleX + 2 * this.sideFactor, this.world.bounds.max.y - 128, 40, 80, {
             angle: 1.62 * this.sideFactor,
             chamfer: {},
@@ -20,7 +29,7 @@ export default class Paddle {
         });
         this.comp = Matter.Body.create({
             label: `paddle-${this.side}-comp`,
-            parts: [this.paddle, this.brick]
+            parts: [this.paddle, this.paddleTip, this.brick]
         });
         this.hinge = Matter.Bodies.circle(paddleX - 28 * this.sideFactor, this.world.bounds.max.y - 140, 5, {
             isStatic: true,

@@ -72,10 +72,10 @@ class PinballGame {
     }
 
     createStaticBodies() {
-        Matter.World.add(this.world, new Boundary(this.world, 'top').boundary)
-        Matter.World.add(this.world, new Boundary(this.world, 'bottom').boundary)
-        Matter.World.add(this.world, new Boundary(this.world, 'left').boundary)
-        Matter.World.add(this.world, new Boundary(this.world, 'right').boundary)
+        Matter.World.add(this.world, new Boundary(this.world, 'top', this.config.COLORS.OUTER).boundary)
+        Matter.World.add(this.world, new Boundary(this.world, 'bottom', this.config.COLORS.OUTER).boundary)
+        Matter.World.add(this.world, new Boundary(this.world, 'left', this.config.COLORS.OUTER).boundary)
+        Matter.World.add(this.world, new Boundary(this.world, 'right', this.config.COLORS.OUTER).boundary)
 
         this.config.staticBodies.forEach((item) => Matter.World.add(this.world, item))       
         Matter.World.add(this.world, [
@@ -134,11 +134,11 @@ class PinballGame {
                     }
                     if (this.config.demoMode) {
                         switch (pair.bodyA.label) {
-                            case 'paddle-left':
+                            case 'paddle-left-tip':
                                 this.paddleLeft.up()
                                 setTimeout(() => { this.paddleLeft.down()}, 250);
                                 break;
-                            case 'paddle-right':
+                            case 'paddle-right-tip':
                                 this.paddleRight.up();
                                 setTimeout(() => { this.paddleRight.down()}, 250);
                                 break;
