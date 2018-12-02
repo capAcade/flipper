@@ -224,9 +224,11 @@ class PinballGame {
         this.updateScore(this.currentScore + 10);
 
         // flash color
-        bumper.render.fillStyle = this.config.COLORS.BUMPER_LIT;
+        bumper.render.strokeStyle = this.config.COLORS.BUMPER_LIT;
+        bumper.render.lineWidth = 12;
         setTimeout(() => {
-            bumper.render.fillStyle = this.config.COLORS.BUMPER;
+            bumper.render.strokeStyle = this.config.COLORS.BUMPER;
+            bumper.render.lineWidth = 0;
         }, 100);
     }
 

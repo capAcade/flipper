@@ -1,0 +1,17 @@
+<svg id="home" 
+    data-name="home" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    viewBox="0 0 128 128">
+    <title>home</title>
+    <circle class="button" cx="64" cy="64" r="60" stroke="black" stroke-width="2" fill="white"></circle>
+    <circle class="button" cx="64" cy="64" r="48" stroke="black" stroke-width="1" fill="white"></circle>
+    <polygon points="64,24 96,56 32,56" style="fill: black; stroke: black; stroke-width: 2"></polygon>
+    <rect x="40" y="48" width="48" height="48" style="stroke: none; fill: black"></rect>
+    <rect x="68" y="64" height="32" width="12" style="stroke: none; fill: white"></rect>
+    <rect x="44" y="64" height="8" width="8" style="stroke: none; fill: white"></rect>
+    <rect x="53" y="64" height="8" width="8" style="stroke: none; fill: white"></rect>
+    <rect x="44" y="73" height="8" width="8" style="stroke: none; fill: white"></rect>
+    <rect x="53" y="73" height="8" width="8" style="stroke: none; fill: white"></rect>
+    
+</svg>

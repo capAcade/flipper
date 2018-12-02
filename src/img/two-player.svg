@@ -1,0 +1,22 @@
+<svg id="two-players" 
+    data-name="two-players" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    viewBox="0 0 128 128">
+    <title>two-players</title>
+    <circle class="button" cx="64" cy="64" r="60" stroke="black" stroke-width="2" fill="white"></circle>
+    <circle class="button" cx="64" cy="64" r="48" stroke="black" stroke-width="1" fill="white"></circle>
+    <circle class="man" cx="46" cy="36" r="8" stroke="none" fill="black"></circle>
+    <circle class="man" cx="78" cy="36" r="8" stroke="none" fill="black"></circle>
+     <rect x="38" y="46" rx="2" ry="2" width="16" height="30" style="fill:black;stroke:none;" />
+     <rect x="70" y="46" rx="2" ry="2" width="16" height="30" style="fill:black;stroke:none;" />
+     <rect x="33" y="46" rx="2" ry="2" width="4" height="30" style="fill:black;stroke:none;" />
+     <rect x="55" y="46" rx="2" ry="2" width="4" height="30" style="fill:black;stroke:none;" />
+     <rect x="65" y="46" rx="2" ry="2" width="4" height="30" style="fill:black;stroke:none;" />
+     <rect x="87" y="46" rx="2" ry="2" width="4" height="30" style="fill:black;stroke:none;" />
+     <rect x="38" y="70" rx="2" ry="2" width="5" height="30" style="fill:black;stroke:none;" />
+     <rect x="49" y="70" rx="2" ry="2" width="5" height="30" style="fill:black;stroke:none;" />
+     <rect x="70" y="70" rx="2" ry="2" width="5" height="30" style="fill:black;stroke:none;" />
+     <rect x="81" y="70" rx="2" ry="2" width="5" height="30" style="fill:black;stroke:none;" />
+
+</svg>

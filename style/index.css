@@ -1,0 +1,50 @@
+html {
+    background-image: url('../src/img/background.svg');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    padding-top: 172px;
+}
+body {
+    max-width: 996px;
+    margin: 0 auto 0 auto;
+    color: white;
+    padding: 12px;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+.right {
+	float: right;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    margin: 10px 0;
+    padding: 20px;
+}
+
+a:active, a:hover, a:focus {
+    background: fuchsia;
+    border: none;
+    // background-color: #12abdb;
+}
+
+li {
+    list-style: none
+}
+
+h3 {
+    display: inline-block;
+    font-size: 24px;
+}
+
+a img.button {
+    float: left;
+    max-width: 64px;
+    max-height: 64px;
+    margin: 12px;
+}

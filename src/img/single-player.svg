@@ -1,0 +1,15 @@
+<svg id="single-player" 
+    data-name="single-player" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    viewBox="0 0 128 128">
+    <title>single-player</title>
+    <circle class="button" cx="64" cy="64" r="60" stroke="black" stroke-width="2" fill="white"></circle>
+    <circle class="button" cx="64" cy="64" r="48" stroke="black" stroke-width="1" fill="white"></circle>
+    <circle class="man" cx="64" cy="36" r="8" stroke="none" fill="black"></circle>
+     <rect x="56" y="46" rx="2" ry="2" width="16" height="30" style="fill:black;stroke:none;" />
+     <rect x="51" y="46" rx="2" ry="2" width="4" height="30" style="fill:black;stroke:none;" />
+     <rect x="73" y="46" rx="2" ry="2" width="4" height="30" style="fill:black;stroke:none;" />
+     <rect x="56" y="70" rx="2" ry="2" width="5" height="30" style="fill:black;stroke:none;" />
+     <rect x="67" y="70" rx="2" ry="2" width="5" height="30" style="fill:black;stroke:none;" />
+</svg>

@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Capman Pinball</title>
+    <link rel="stylesheet" href="./style/index.css">
+</head>
+<body>
+    <h1>PINBALL</h1>
+    <h2 class="container">High Score<span class="right score high-score"></span></h2>
+    <a href="./game.html">
+        <img class="button" src="./src/img/single-player.svg">
+        <h3 class="col">Play on CapMap arcade</h3>
+    </a>
+    <a href="./game.html#demo" class="demo choice">
+        <img class="button" src="./src/img/two-player.svg">
+        <h3>DEMO</h3>
+    </a>
+    <a href="./game.html">
+        <img class="button" src="./src/img/home.svg">
+        <h3 class="col">Back to CAPMAN main menu</h3>
+    </a>
+    <script>
+        document.querySelector('.high-score').innerHTML = localStorage.getItem('highScore')
+    </script>
+</body>
+</html>
+  
